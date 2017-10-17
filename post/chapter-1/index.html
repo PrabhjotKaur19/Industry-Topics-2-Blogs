@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Developer Blog  | Function Composition in JavaScript with Pipe</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.29" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    <link href='http://prabhdeveloperblog.com/dist/main.css' rel='stylesheet' type="text/css" />
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Function Composition in JavaScript with Pipe" />
+<meta property="og:description" content="JavaScript is a very powerful language and it supports functional programming quite well. Function Composition tool makes JavaScript even more powerful. I hope in this article, I will provide you an easy example of function composition with the use of pipe in JavaScript. So, you can understand function composition in JavaScript and you can write short, clean and functional code.
+What is Function Composition? Let&rsquo;s start from basic by answering the question that what is function composition?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://prabhdeveloperblog.com/post/chapter-1/" />
+
+
+
+<meta property="article:published_time" content="2017-10-04T00:39:10-07:00"/>
+<meta property="article:modified_time" content="2017-10-04T00:39:10-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Function Composition in JavaScript with Pipe">
+<meta itemprop="description" content="JavaScript is a very powerful language and it supports functional programming quite well. Function Composition tool makes JavaScript even more powerful. I hope in this article, I will provide you an easy example of function composition with the use of pipe in JavaScript. So, you can understand function composition in JavaScript and you can write short, clean and functional code.
+What is Function Composition? Let&rsquo;s start from basic by answering the question that what is function composition?">
+
+
+<meta itemprop="dateModified" content="2017-10-04T00:39:10-07:00" />
+<meta itemprop="wordCount" content="1018">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Function Composition in JavaScript with Pipe"/>
+<meta name="twitter:description" content="JavaScript is a very powerful language and it supports functional programming quite well. Function Composition tool makes JavaScript even more powerful. I hope in this article, I will provide you an easy example of function composition with the use of pipe in JavaScript. So, you can understand function composition in JavaScript and you can write short, clean and functional code.
+What is Function Composition? Let&rsquo;s start from basic by answering the question that what is function composition?"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://prabhdeveloperblog.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Developer Blog
+    </a>
+    <div class="flex-l items-center">
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+  <a href="https://twitter.com/GoHugoIO" class="link-transition twitter link dib z-999 pt3 pt0-l mr2" title="Twitter link">
+    <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+  </a>
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <p class="f6 b helvetica tracked">
+        
+        POST
+      </p>
+      <h1 class="f1 athelas">
+        Function Composition in JavaScript with Pipe
+      </h1>
+        
+        
+      <time class="f6 mv4 dib tracked" datetime="2017-10-04T00:39:10-07:00">
+        October 4, 2017
+      </time>
+      <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray">
+        
+
+<p>JavaScript is a very powerful language and it supports functional programming quite well. Function Composition tool makes JavaScript even more powerful. I hope in this article, I will provide you an easy example of function composition with the use of pipe in JavaScript. So, you can understand function composition in JavaScript and you can write short, clean and functional code.</p>
+
+<h2 id="what-is-function-composition">What is Function Composition?</h2>
+
+<p>Let&rsquo;s start from basic by answering the question that what is function composition?
+<a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-function-composition-20dfb109a1a0">Function composition</a> is a mathematical concept to combine two or more functions it means the result of one function is the input of the second function and so on. Function composition produces a new function as a result. It is like a pipeline in which data flows from one function to another function. Function composition works from right to left. For example &lsquo;a()&rsquo; and &lsquo;b( c )&rsquo; are two composable functions. When we do composition, this will like:</p>
+
+<p align="center">a(b(c))</p>
+
+<p>this will work from right to left. That is why in the above example the value that will be returned by function &lsquo;b( c )&rsquo; will be passed to &lsquo;a&rsquo;.
+We can also compose more than two functions:
+<p align="center">f5(f4(f3(f2(f1)))))</p></p>
+
+<p>To further explain it let&rsquo;s take a simple example in which we want to divide a number by 2 and then increment the result of division by 1. So, the code will look like this:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="">     </span><span style="color:#66d9ef">var</span><span style=""> </span><span style="color:#a6e22e">num</span><span style=""> </span><span style="color:#f92672">=</span><span style="color:#ae81ff">4</span><span style="">;</span><span style="">
+</span><span style="">     </span><span style="color:#66d9ef">var</span><span style=""> </span><span style="color:#a6e22e">d</span><span style="color:#f92672">=</span><span style=""> </span><span style="color:#a6e22e">num</span><span style=""></span><span style="color:#960050;background-color:#1e0010">/2;</span><span style="">
+</span><span style="">     </span><span style="color:#66d9ef">var</span><span style=""> </span><span style="color:#a6e22e">result</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="color:#a6e22e">d</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="">;</span><span style="">
+</span><span style="">     </span><span style="color:#a6e22e">console</span><span style="">.</span><span style="color:#a6e22e">log</span><span style="">(</span><span style="color:#e6db74">&#34;Result is: &#34;</span><span style="">,</span><span style="color:#a6e22e">result</span><span style="">);</span></code></pre>
+</div>
+Imagine we have two functions for operations of division and increment.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="">    </span><span style="color:#66d9ef">var</span><span style=""> </span><span style="color:#a6e22e">num</span><span style="color:#f92672">=</span><span style="color:#ae81ff">4</span><span style="">;</span><span style="">
+</span><span style="">   </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">division</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">n</span><span style="">)</span><span style=""> </span><span style="">=&gt;</span><span style=""> </span><span style="">{</span><span style="">
+</span><span style="">   </span><span style="color:#66d9ef">return</span><span style=""> </span><span style="color:#a6e22e">n</span><span style=""></span><span style="color:#960050;background-color:#1e0010">/2;</span><span style="">
+</span><span style="">   </span><span style="">}</span><span style="">
+</span><span style="">   </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">increment</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">a</span><span style="">)</span><span style=""> </span><span style="">=&gt;</span><span style=""> </span><span style="">{</span><span style="">
+</span><span style="">   </span><span style="color:#66d9ef">return</span><span style=""> </span><span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="">;</span><span style="">
+</span><span style="">   </span><span style="">}</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">var</span><span style=""> </span><span style="color:#a6e22e">d</span><span style="color:#f92672">=</span><span style="color:#a6e22e">division</span><span style="">(</span><span style="color:#a6e22e">num</span><span style="">);</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">var</span><span style=""> </span><span style="color:#a6e22e">result</span><span style="color:#f92672">=</span><span style="color:#a6e22e">increment</span><span style="">(</span><span style="color:#a6e22e">d</span><span style="">);</span><span style="">
+</span><span style="">    </span><span style="color:#a6e22e">console</span><span style="">.</span><span style="color:#a6e22e">log</span><span style="">(</span><span style="color:#e6db74">&#34;Result is: &#34;</span><span style="">,</span><span style="color:#a6e22e">result</span><span style="">);</span></code></pre>
+</div>
+In this way we need to create an extra variable &lsquo;d&rsquo; to store the value return by division function and pass this value to increment function. There is nothing wrong with this approach because we have only two functions. But what if we have more than two functions? Then we need to declare many variables. We can solve this problem by the use of a concept called nesting functions. In which we can call one function from another function. This will look like as follows:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="">    </span><span style="color:#66d9ef">var</span><span style=""> </span><span style="color:#a6e22e">num</span><span style="color:#f92672">=</span><span style="color:#ae81ff">4</span><span style="">;</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">division</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">n</span><span style="">)</span><span style=""> </span><span style="">=&gt;</span><span style=""> </span><span style="">{</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">return</span><span style=""> </span><span style="color:#a6e22e">n</span><span style=""></span><span style="color:#960050;background-color:#1e0010">/2;</span><span style="">
+</span><span style="">    </span><span style="">}</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">increment</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">a</span><span style="">)</span><span style=""> </span><span style="">=&gt;</span><span style=""> </span><span style="">{</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">return</span><span style=""> </span><span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="">;</span><span style="">
+</span><span style="">    </span><span style="">}</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">var</span><span style=""> </span><span style="color:#a6e22e">result</span><span style="color:#f92672">=</span><span style="color:#a6e22e">increment</span><span style="">(</span><span style="color:#a6e22e">division</span><span style="">(</span><span style="color:#a6e22e">num</span><span style="">));</span><span style="">
+</span><span style="">    </span><span style="color:#a6e22e">console</span><span style="">.</span><span style="color:#a6e22e">log</span><span style="">(</span><span style="color:#e6db74">&#34;Result is: &#34;</span><span style="">,</span><span style="color:#a6e22e">result</span><span style="">);</span></code></pre>
+</div>
+This approach looks easy to read right now. But it will be confusing when we have multiple functions. To make this more readable JavaScript introduce the use of function composition with pipe.</p>
+
+<h2 id="what-is-pipe-function-in-javascript">What is pipe function in JavaScript?</h2>
+
+<p>In general, as the name suggested that pipe function create a pipeline of functions in which data flows. The meaning of data flows is that the output of a function is passed to next function and so on. At the end, pipe function returns a function as a result. The pipeline of functions should look like as below:</p>
+
+<p align="center">function1 | function2 | function3 | ... | function n</p>
+
+<p>The | symbol symbolizes the pipe. The JavaScript function pipe is a very useful function which provides features like converts a list of functions into a function, supports array and multiple arguments.</p>
+
+<p>Now, as we somewhat clear about the definition of the pipe function, we can start writing a pipe function. So that you can understand it more with a simple example that we use in this blog before at the start.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="">    </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">pipe</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">fun1</span><span style="">,</span><span style="color:#a6e22e">fun2</span><span style="">)=&gt;{</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">return</span><span style="">(</span><span style="color:#a6e22e">arg</span><span style="">)=&gt;{</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">r</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="color:#a6e22e">fun1</span><span style="">(</span><span style="color:#a6e22e">arg</span><span style="">);</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">return</span><span style=""> </span><span style="color:#a6e22e">fun2</span><span style="">(</span><span style="color:#a6e22e">r</span><span style="">);</span><span style="">
+</span><span style="">    </span><span style="">}</span><span style="">
+</span><span style="">    </span><span style="">}</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">result</span><span style="color:#f92672">=</span><span style="color:#a6e22e">pipe</span><span style="">(</span><span style="color:#a6e22e">division</span><span style="">,</span><span style="color:#a6e22e">increment</span><span style="">);</span><span style="">
+</span><span style="">    </span><span style="color:#a6e22e">console</span><span style="">.</span><span style="color:#a6e22e">log</span><span style="">(</span><span style="color:#e6db74">&#34;Result is: &#34;</span><span style="">,</span><span style="color:#a6e22e">result</span><span style="">);</span></code></pre>
+</div>
+Let&rsquo;s breakdown the above code,</p>
+
+<ul>
+<li><p>As I discussed above that division function accept a number as an input returns the output after dividing this number by 2.</p></li>
+
+<li><p>The output of division is the input of increment that increments it by 1.</p></li>
+
+<li><p>In the above function we passed these two functions to pipe in the order it should be executed. Pipe functions returns a new function result().</p></li>
+
+<li><p>We call this result() from the console.log and passed an argument 4.</p></li>
+</ul>
+
+<h2 id="refine-pipe-function">Refine pipe function</h2>
+
+<p>The problem with the above code that we still need to create a variable &lsquo;r&rsquo; to store the return value of division(). But we can rewrite the current function like this:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="">    </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">pipe</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">fun1</span><span style="">,</span><span style="color:#a6e22e">fun2</span><span style="">)=&gt;(</span><span style="color:#a6e22e">arg</span><span style="">)=&gt;</span><span style="color:#a6e22e">fun2</span><span style="">(</span><span style="color:#a6e22e">fun1</span><span style="">(</span><span style="color:#a6e22e">arg</span><span style="">));</span></code></pre>
+</div>
+So, in this way we do not need to use a separate variable and code is short, simple and easy to read.</p>
+
+<h2 id="dealing-with-more-than-two-functions">Dealing with more than two functions</h2>
+
+<p>Our current function accepts two functions and returns one function. But according to the definition of pipe function, it accepts n number of functions and returns one function. To fit with the above definition function should be something like this:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="">    </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">pipe</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">fun1</span><span style="">,</span><span style="color:#a6e22e">fun2</span><span style="">,</span><span style="color:#a6e22e">fun3</span><span style="">,...,</span><span style="color:#a6e22e">funN</span><span style="">)=&gt;{</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">return</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">arg</span><span style="">)</span><span style=""> </span><span style="">=&gt;</span><span style=""> </span><span style="color:#a6e22e">funN</span><span style="">(</span><span style="color:#a6e22e">fun3</span><span style="">(</span><span style="color:#a6e22e">fun2</span><span style="">(</span><span style="color:#a6e22e">fun1</span><span style="">(</span><span style="color:#a6e22e">args</span><span style="">))));</span><span style="">
+</span><span style=""></span><span style="">}</span></code></pre>
+</div>
+Continue with the above example, now we want to multiply the value returned by increment function with 100. To perform this operation, we have the following function:
+    <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="">    </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">multiply</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">m</span><span style="">)</span><span style=""> </span><span style="">=&gt;</span><span style=""> </span><span style="">{</span><span style="">
+</span><span style="">    </span><span style="color:#66d9ef">return</span><span style=""> </span><span style="color:#a6e22e">m</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="">;</span><span style="">
+</span><span style="">    </span><span style="">}</span><span style="">
+</span><span style="">    </span></code></pre>
+</div>
+As we know that pipe returns a function, we can also pass this returned function as an input to another pipe function, as shown below:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="">    </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">finalValue</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="color:#a6e22e">pipe</span><span style="">(</span><span style="color:#a6e22e">pipe</span><span style="">(</span><span style="color:#a6e22e">division</span><span style="">,</span><span style="color:#a6e22e">increment</span><span style="">),</span><span style="color:#a6e22e">multiply</span><span style="">);</span><span style="">
+</span><span style="">    </span><span style="color:#a6e22e">cost</span><span style=""> </span><span style="color:#a6e22e">result</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="color:#a6e22e">finalValue</span><span style="">(</span><span style="color:#ae81ff">4</span><span style="">);</span></code></pre>
+</div>
+In this way, I can nest as many pipe functions as many I want. But the problem is that it will become hard to read. For making our function easy to read we will need to do create a new pipe function. Our new pipe function is:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="">     </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">pipe</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(...</span><span style="color:#a6e22e">funs</span><span style="">)</span><span style=""> </span><span style="">=&gt;</span><span style=""> </span><span style="color:#a6e22e">funs</span><span style="">.</span><span style="color:#a6e22e">reduce</span><span style="">(</span><span style="color:#a6e22e">oldpipe</span><span style="">)</span></code></pre>
+</div>
+Here, we use &hellip; rest operator and a reduce function. The rest operator creates an array of functions and iterates over the array of functions by using reduce function and merge all operation into a single bundle. If we don&rsquo;t pass an accumulator to reduce function then it will take first two elements of array to callback. These functions are then passed to oldpipe function. The function returned by oldpipe function becomes the accumulator. In this way reduce function iterates throughout the array of functions. With this new pipe function, we can pass n number of functions to it.</p>
+
+<p>I have one more version of pipe function which is:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="">    </span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">pipe</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">fun1</span><span style="">,</span><span style="color:#a6e22e">fun2</span><span style="">)=&gt;(...</span><span style="color:#a6e22e">arg</span><span style="">)=&gt;</span><span style="color:#a6e22e">fun2</span><span style="">(</span><span style="color:#a6e22e">fun1</span><span style="">(...</span><span style="color:#a6e22e">arg</span><span style="">));</span></code></pre>
+</div>
+This pipe function accepts multiple arguments for first function. But it doesn&rsquo;t work for second function because second function takes the value returned by first function and a function can return only one value.</p>
+
+<h3 id="final-code">Final Code:</h3>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">pipe</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">fun1</span><span style="">,</span><span style="color:#a6e22e">fun2</span><span style="">)=&gt;(</span><span style="color:#a6e22e">arg</span><span style="">)=&gt;</span><span style="color:#a6e22e">fun2</span><span style="">(</span><span style="color:#a6e22e">fun1</span><span style="">(</span><span style="color:#a6e22e">arg</span><span style="">));</span><span style="">
+</span><span style=""></span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">newpipe</span><span style=""> </span><span style="color:#f92672">=</span><span style="">(...</span><span style="color:#a6e22e">funs</span><span style="">)=&gt;</span><span style="color:#a6e22e">funs</span><span style="">.</span><span style="color:#a6e22e">reduce</span><span style="">(</span><span style="color:#a6e22e">pipe</span><span style="">);</span><span style="">
+</span><span style=""></span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">division</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">n</span><span style="">)</span><span style=""> </span><span style="">=&gt;</span><span style=""> </span><span style="">{</span><span style="">
+</span><span style=""></span><span style="color:#66d9ef">return</span><span style=""> </span><span style="color:#a6e22e">n</span><span style=""></span><span style="color:#960050;background-color:#1e0010">/2;</span><span style="">
+</span><span style=""></span><span style="">}</span><span style="">
+</span><span style=""></span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">increment</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">a</span><span style="">)</span><span style=""> </span><span style="">=&gt;</span><span style=""> </span><span style="">{</span><span style="">
+</span><span style=""></span><span style="color:#66d9ef">return</span><span style=""> </span><span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="">;</span><span style="">
+</span><span style=""></span><span style="">}</span><span style="">
+</span><span style=""></span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">multiply</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="">(</span><span style="color:#a6e22e">m</span><span style="">)</span><span style=""> </span><span style="">=&gt;</span><span style=""> </span><span style="">{</span><span style="">
+</span><span style=""></span><span style="color:#66d9ef">return</span><span style=""> </span><span style="color:#a6e22e">m</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="">;</span><span style="">
+</span><span style=""></span><span style="">}</span><span style="">
+</span><span style=""></span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">finalvalue</span><span style=""> </span><span style="color:#f92672">=</span><span style=""> </span><span style="color:#a6e22e">newpipe</span><span style="">(</span><span style="color:#a6e22e">division</span><span style="">,</span><span style="color:#a6e22e">increment</span><span style="">,</span><span style="color:#a6e22e">multiply</span><span style="">);</span><span style="">
+</span><span style=""></span><span style="color:#66d9ef">const</span><span style=""> </span><span style="color:#a6e22e">r</span><span style="color:#f92672">=</span><span style="color:#a6e22e">finalvalue</span><span style="">(</span><span style="color:#ae81ff">4</span><span style="">);</span><span style="">
+</span><span style=""></span><span style="color:#a6e22e">console</span><span style="">.</span><span style="color:#a6e22e">log</span><span style="">(</span><span style="color:#e6db74">&#34;The result of ((4/2)+1)*100 is: &#34;</span><span style="">,</span><span style="color:#a6e22e">r</span><span style="">);</span></code></pre>
+</div>
+
+<h4 id="explanation">Explanation:</h4>
+
+<p>In this code, reduce function pass first two functions division and increment to oldpipe(). Which further call division and increment respectively and returned value 3 will be passed to multiply function. The result will be 300. So this is the simple example of pipe, I hope you enjoy reading this post and somewhat understand about pipe function.</p>
+
+<p>Enjoy!</p>
+
+<h4 id="references">References:</h4>
+
+<ul>
+<li><a href="https://medium.com/@venomnert/pipe-function-in-javascript-8a22097a538e">https://medium.com/@venomnert/pipe-function-in-javascript-8a22097a538e</a></li>
+<li><a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-function-composition-20dfb109a1a0">https://medium.com/javascript-scene/master-the-javascript-interview-what-is-function-composition-20dfb109a1a0</a></li>
+</ul>
+
+      </section>
+      
+
+
+    </article>
+    <div class="ph3 mt2 mt6-ns">
+      
+
+
+
+
+
+
+
+  <div class="bg-light-gray pa3">
+    <ul>
+      <li class="list b mb3">
+        1 More Post
+      </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/post/amazons3/" class="link ph2 pv2 db black">
+            Understanding Amazon S3
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/post/chapter-1/" class="link ph2 pv2 db black o-50">
+            Function Composition in JavaScript with Pipe
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+    </div>
+  </div>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://prabhdeveloperblog.com/" >
+    &copy; 2017 Developer Blog
+  </a>
+  
+
+
+
+  <a href="https://twitter.com/GoHugoIO" class="link-transition twitter link dib z-999 pt3 pt0-l mr2" title="Twitter link">
+    <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+  </a>
+
+
+
+
+
+
+  </div>
+</footer>
+
+    <script src="http://prabhdeveloperblog.com/dist/app.bundle.js" async></script>
+
+  </body>
+</html>

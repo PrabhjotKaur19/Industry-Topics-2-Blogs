@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Developer Blog  | Understanding Amazon S3</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.29" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    <link href='http://prabhdeveloperblog.com/dist/main.css' rel='stylesheet' type="text/css" />
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Understanding Amazon S3" />
+<meta property="og:description" content="As the number of users is increasing day by day on the internet, because of that database is becoming huge and complex. So, the need for storage is increasing every day and maintaining our database is a very tedious and time-consuming job. Sometimes our application fails because of not having enough space for data. It is very hard to predict that how much space we need in future for our applications." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://prabhdeveloperblog.com/post/chapter-2/" />
+
+
+
+<meta property="article:published_time" content="2017-10-17T00:39:10-07:00"/>
+<meta property="article:modified_time" content="2017-10-17T00:39:10-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Understanding Amazon S3">
+<meta itemprop="description" content="As the number of users is increasing day by day on the internet, because of that database is becoming huge and complex. So, the need for storage is increasing every day and maintaining our database is a very tedious and time-consuming job. Sometimes our application fails because of not having enough space for data. It is very hard to predict that how much space we need in future for our applications.">
+
+
+<meta itemprop="dateModified" content="2017-10-17T00:39:10-07:00" />
+<meta itemprop="wordCount" content="1832">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Understanding Amazon S3"/>
+<meta name="twitter:description" content="As the number of users is increasing day by day on the internet, because of that database is becoming huge and complex. So, the need for storage is increasing every day and maintaining our database is a very tedious and time-consuming job. Sometimes our application fails because of not having enough space for data. It is very hard to predict that how much space we need in future for our applications."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('http://prabhdeveloperblog.com/images/aws.jpg');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://prabhdeveloperblog.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Developer Blog
+    </a>
+    <div class="flex-l items-center">
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+  <a href="https://twitter.com/GoHugoIO" class="link-transition twitter link dib z-999 pt3 pt0-l mr2" title="Twitter link">
+    <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+  </a>
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Understanding Amazon S3</h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <p class="f6 b helvetica tracked">
+        
+        POST
+      </p>
+      <h1 class="f1 athelas">
+        Understanding Amazon S3
+      </h1>
+        
+        
+      <time class="f6 mv4 dib tracked" datetime="2017-10-17T00:39:10-07:00">
+        October 17, 2017
+      </time>
+      <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray">
+        
+
+<p>As the number of users is increasing day by day on the internet, because of that database is becoming huge and complex. So, the need for storage is increasing every day and maintaining our database is a very tedious and time-consuming job. Sometimes our application fails because of not having enough space for data. It is very hard to predict that how much space we need in future for our applications. So, keeping all this in mind today I am writing this blog to explain you about a storage service provides by AWS (Amazon Web Services) called AWS S3 (Amazon Simple Storage Service).</p>
+
+<p>Maybe you heard about this service or maybe you already have been using it for your applications. But for those who don’t know about S3 or never use this service of AWS and facing problems regarding database storage and looking for solutions, in this article I will write about AWS S3. I hope this will give you a basic understanding of S3. I think after reading this article you will have an idea about what is this service and how can you use it for your business.</p>
+
+<h2 id="introduction-to-aws-s3">Introduction to AWS S3</h2>
+
+<p>Let’s start with the basic, introduction to Amazon Simple Storage Service, which will give a detailed explanation of AWS S3 web service. Amazon Simple Storage Service is an online storage service provided by AWS. It is inexpensive, fast and easy to use. As we know that this service is provided by Amazon so we can trust that whatever we store in S3 is secured.</p>
+
+<p>Amazon S3 is designed for providing storage that is large in capacity and low in cost across multiple regions geographically. So, you can store and retrieve any amount of data, at any time and from anywhere on the web using Amazon S3 service. It provides us a simple interface to perform these functions. Amazon S3 provides storage which is:</p>
+
+<ul>
+<li><strong>Secure:</strong>
+Whenever it’s come to storage for our data we always worry about the security of the data. Data we stored in S3 is fully secured because the data you stored on Amazon S3 is encrypted on both client side and server side. It maintains multiple copies of the database so that if any problem occurred you can restore this data. Another feature is that whenever you edit your data it saved different versions of data so that you can undo the changes if you want.</li>
+<li><strong>Highly Scalable:</strong>
+Our other main concern about storage is the capacity of storage like what is the size of our storage, how much storage do we require for our database and what if we want to scale our database storage in future? The answer to all these questions is Amazon S3. It is highly scalable. You don’t need to decide that how much storage will you need in future because it automatically scale your database according to your requirements and you only need to pay for storage that you are using. It does not have any capacity limits you can store any amount of data on S3.</li>
+<li><strong>Durable:</strong>
+S3 is durable as well because it verifies the database regularly. That is why, if any problem occurred in the database, it will repair this database by using the other copies of the database. It verifies not only the stored data, but it also checks the while storing or retrieving for any corrupted data.</li>
+<li><strong>Inexpensive:</strong>
+Amazon S3 is a cheap solution for storage. As it provides an AWS free usage tier to new AWS customers. This free tier provides 5 GB of S3 storage in the Standard Storage Class, 20,000 Get request, 2,000 Put request and 15 GB of data transfer out each month for one year. After this limit you will pay for space you use and it depends on regions. For more details about pricing of Amazon S3 please <a href="https://aws.amazon.com/s3/pricing/">click here.</a><br /></li>
+<li><strong>Easy to Use:</strong>
+Storing, retrieving and sharing data on S3 is quite easy and simple. AWS provides you the AWS Management Console, to do these operations which is a simple and easy to use web interface.</li>
+</ul>
+
+<h2 id="amazon-s3-terminology-1">Amazon S3 Terminology <sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup></h2>
+
+<p>This section describes some basic terminology of S3 so that you can understand and can use S3 easily and effectively.</p>
+
+<ul>
+<li><p><strong>Buckets <sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup>:</strong>
+S3 buckets basically a container to store objects in Amazon S3 storage service. To store any type of data such as images, files, videos etc. first, you need to create a bucket in S3. Whatever you store in S3 is contained inside a bucket. It is most likely the same concept as you stored your files in directories. To access any object that is stored in S3 bucket you use a URL. For example, if you stored a file ‘files/sample.txt’ in a bucket named ‘demobucket’ then the URL will be <a href="http://demobucket.s3.amazonaws.com/files/sample.txt">http://demobucket.s3.amazonaws.com/files/sample.txt</a>. You are charged for creating buckets, there is a limit to the number of buckets per account at a time which is 100. But there is no limit on how many objects you can store in a bucket. You are charged for storing and retrieving objects from buckets.</p></li>
+
+<li><p><strong>Object<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup>:</strong>
+Amazon S3 manages data as objects in buckets same as other storage architectures like file systems which manage data as files in directories. In S3 object is a basic entity to store any type of data. A particular object contains data, key, and metadata. Key is used to uniquely identify an object. Whenever you create an object you specify a name to the key. Object metadata describes some set of pair values about an object such as object last modified, content type or you can specify custom metadata. you cannot change metadata after you store object once. The one way to make changes in metadata is to copy an object and set metadata.</p></li>
+
+<li><p><strong>Regions:</strong>
+Each region is a separate geographical area. Amazon S3 allows storing your data at multiple regions geographically. It also allows you to select a region where you want to store your S3 bucket. There are some facts, on based on them you can select your region such as optimize latency, minimize costs or requirement related to addressing. You can transfer data from one region to another. For detailed information on regions <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">click here</a>.</p></li>
+
+<li><p><strong>Amazon S3 Data Consistency Model<sup class="footnote-ref" id="fnref:4"><a rel="footnote" href="#fn:4">4</a></sup>:</strong>
+Amazon S3 provides read-after-write consistency for PUS of new objects and eventual consistency for overwrite operations such as PUTS and DELETES in all regions. But if you made HEAD or GET request to search for an object before the object created then it will only provide eventual consistency. Update to a single key is atomic this means if you PUT to existing key and made GET request subsequently then it might return new or old data. But never return the corrupted or incomplete data. As we know that Amazon S3 provides high availability by replicating data on different servers so it is necessary to maintain a data integrity. The behavior for a different request to the database is as follows:</p>
+
+<ul>
+<li><strong>PUT request:</strong> The read-after-write consistency model is applied here. Whenever a new PUT request is made S3 stores data across multiple servers and immediately lists keys within a bucket of that object. But object might not show up in the bucket until the whole process of changes is not completed.</li>
+<li><strong>UPDATE request:</strong> An eventual consistency model is applied here. If you update any data in an object and made a read request immediately after making changes it might return old data until the process of updating is not complete.</li>
+<li><strong>DELETE request:</strong> This is quite similar to update process. It provides eventual consistency which means read request might return the deleted object. If you try to made read request immediately after the delete request.</li>
+</ul></li>
+</ul>
+
+<h2 id="hosting-a-static-website-on-amazon-s3-5">Hosting a Static Website on Amazon S3<sup class="footnote-ref" id="fnref:5"><a rel="footnote" href="#fn:5">5</a></sup>:</h2>
+
+<p>Now as you familiar with Amazon S3 and it&rsquo;s few simple concepts you can easily start using Amazon S3 for your storage jobs. This section explains a simple example of the use of Amazon S3. In this example, I will explain how you can host your static website on Amazon S3 with some simple steps. For this you need to follow steps that are described below:</p>
+
+<ol>
+<li><p><strong>Sign Up or Sign In for AWS:</strong> To use AWS services you need to create an AWS account if you don’t have one. If you already have an account you need to login to your account or if you don’t have one go to <a href="https://portal.aws.amazon.com/billing/signup#/start">https://portal.aws.amazon.com/billing/signup#/start</a> and create a new account. After you are login to your account go to S3 and click on Get Started with S3.</p></li>
+
+<li><p><strong>Create a Bucket:</strong> As we know that whatever we store in Amazon S3 is contained in S3 buckets. So, after sign in you need to create a bucket. To create S3 buckets:</p>
+
+<ol>
+<li><p>Go to <a href="https://console.aws.amazon.com/s3/">https://console.aws.amazon.com/s3/</a>.</p></li>
+
+<li><p>Select Create Bucket. When you click on create bucket button a dialog box will appear in which you specify the name of the bucket and region in which you want to store your data. Then click Create.</p>
+
+<p><img src="/images/createbucket2.PNG" alt="Create Bucket Image" /></p></li>
+
+<li><p>Now your new bucket is displayed in the list of buckets.</p>
+
+<p><img src="/images/bucketlist.PNG" alt="List of Bucket Image" /></p></li>
+</ol></li>
+
+<li><p><strong>Enable Website Hosting:</strong> After creating new bucket now we need to enable the static website hosting for this bucket. To enable website hosting:</p>
+
+<ol>
+<li>Click on the name of the bucket.</li>
+
+<li><p>Select a Static website hosting from Properties tab.</p>
+
+<p><img src="/images/properties.PNG" alt="Enable Hosting" /></p></li>
+
+<li><p>From the dialog box select Use this bucket to host a website. Enter the files name for index and error documents.</p>
+
+<p><img src="/images/staticwebsite.PNG" alt="Enable Hosting" /></p></li>
+
+<li><p>Click Save. Now it is showing that website hosting is enabled.</p></li>
+</ol></li>
+
+<li><p><strong>Create a index.html file:</strong> Now I will create an index.html file which contains the following content:
+<blockquote>
+<pre>
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Demo: Amazon S3&lt;/title&gt;
+&lt;meta name=&ldquo;description&rdquo; content=&ldquo;My first Amazon S3 hosting static website&rdquo;&gt;
+&lt;meta charset=&ldquo;utf-8&rdquo;&gt;
+&lt;style&gt;
+body {
+  color: #ffffff;
+  background-color: #0188cc;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+h1 {
+  font-size: 500%;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+h3{
+  font-size: 200%;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Congratulations!!&lt;/h1&gt;
+&lt;h3&gt;This static website is hosted on Amazon S3.&lt;/h3&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</blockquote></p></li>
+
+<li><p><strong>Add an object to Bucket:</strong> Now you need to add an object to a bucket. To do this</p>
+
+<ol>
+<li><p>Click on Upload.</p>
+
+<p><img src="/images/upload.PNG" alt="Upload" /></p></li>
+
+<li><p>Select Add Files and select index.html file.</p>
+
+<p><img src="/images/addfiles.PNG" alt="upload" /></p></li>
+
+<li><p>Select Upload. Now your object will look like this.</p>
+
+<p><img src="/images/object.PNG" alt="Object" /></p></li>
+</ol></li>
+
+<li><p><strong>Make Your File Public:</strong> To host your website on S3 you need to make its file publicly available.</p>
+
+<ol>
+<li><p>Select the file index.html or any other file you want to make publicly available and go to more select make public.</p>
+
+<p><img src="/images/makepublic.PNG" alt="Make Public" /></p></li>
+
+<li><p>Then a new box shows a warning “Everyone will have access to one or all of the followings: read this object, read and write permissions.” Click Make Public. Now your website is available publicly.</p></li>
+</ol></li>
+
+<li><p><strong>See the final result:</strong> Now click on file and visit the link it will show the result. Now your website is public.</p></li>
+</ol>
+
+<p><img src="/images/final.PNG" alt="Final" /></p>
+
+<p>I hope you enjoyed learning this article and you learn something from this. If you want to go deeper on this topic you can visit the official <a href="https://aws.amazon.com/documentation/s3/">documentation of Amazon S3.</a>.</p>
+
+<p><strong>Thank You.</strong></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html#CoreConcepts">http://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html#CoreConcepts</a>
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2"><a href="http://searchaws.techtarget.com/definition/AWS-bucket">http://searchaws.techtarget.com/definition/AWS-bucket</a>
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3"><a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html</a>
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+<li id="fn:4"><a href="http://jayendrapatil.com/aws-s3-data-consistency-model/">http://jayendrapatil.com/aws-s3-data-consistency-model/</a>
+ <a class="footnote-return" href="#fnref:4"><sup>[return]</sup></a></li>
+<li id="fn:5"><a href="https://www.edureka.co/blog/s3-aws-amazon-simple-storage-service/">https://www.edureka.co/blog/s3-aws-amazon-simple-storage-service/</a> Source for featured image: <a href="https://isdownrightnow.net/status/amazon-s3/">https://isdownrightnow.net/status/amazon-s3/</a>
+ <a class="footnote-return" href="#fnref:5"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+      </section>
+      
+
+
+    </article>
+    <div class="ph3 mt2 mt6-ns">
+      
+
+
+
+
+
+
+
+  <div class="bg-light-gray pa3">
+    <ul>
+      <li class="list b mb3">
+        1 More Post
+      </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/post/chapter-2/" class="link ph2 pv2 db black o-50">
+            Understanding Amazon S3
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/post/chapter-1/" class="link ph2 pv2 db black">
+            Function Composition in JavaScript with Pipe
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+    </div>
+  </div>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://prabhdeveloperblog.com/" >
+    &copy; 2017 Developer Blog
+  </a>
+  
+
+
+
+  <a href="https://twitter.com/GoHugoIO" class="link-transition twitter link dib z-999 pt3 pt0-l mr2" title="Twitter link">
+    <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+  </a>
+
+
+
+
+
+
+  </div>
+</footer>
+
+    <script src="http://prabhdeveloperblog.com/dist/app.bundle.js" async></script>
+
+  </body>
+</html>
