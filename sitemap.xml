@@ -3,6 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://prabhdeveloperblog.com/post/emberjs/</loc>
+    <lastmod>2017-11-05T00:39:10-07:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://prabhdeveloperblog.com/post/amazons3/</loc>
     <lastmod>2017-10-17T00:39:10-07:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -24,14 +31,14 @@
   
   <url>
     <loc>http://prabhdeveloperblog.com/</loc>
-    <lastmod>2017-10-17T00:39:10-07:00</lastmod>
+    <lastmod>2017-11-05T00:39:10-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://prabhdeveloperblog.com/post/</loc>
-    <lastmod>2017-10-17T00:39:10-07:00</lastmod>
+    <lastmod>2017-11-05T00:39:10-07:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>

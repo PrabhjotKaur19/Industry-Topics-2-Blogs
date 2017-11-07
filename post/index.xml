@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Developer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Oct 2017 00:39:10 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 05 Nov 2017 00:39:10 -0700</lastBuildDate>
     
 	<atom:link href="http://prabhdeveloperblog.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>EmberJs</title>
+      <link>http://prabhdeveloperblog.com/post/emberjs/</link>
+      <pubDate>Sun, 05 Nov 2017 00:39:10 -0700</pubDate>
+      
+      <guid>http://prabhdeveloperblog.com/post/emberjs/</guid>
+      <description>Welcome to my new post which is about Ember.js. Are you getting started on ember.js? If yes then check out this post. In this post, I will explain what is ember.js, what are the features of ember.js, as there are so many JavaScript frameworks so why you use this, how to install it and how to start working with ember.js? I hope after reading this article you will somewhat understand ember.</description>
+    </item>
     
     <item>
       <title>Understanding Amazon S3</title>
