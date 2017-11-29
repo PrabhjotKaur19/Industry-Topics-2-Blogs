@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Developer Blog  | EmberJs</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.29" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    <link href='http://prabhdeveloperblog.com/dist/main.css' rel='stylesheet' type="text/css" />
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="EmberJs" />
+<meta property="og:description" content="Welcome to my new post which is about Ember.js. Are you getting started on ember.js? If yes then check out this post. In this post, I will explain what is ember.js, what are the features of ember.js, as there are so many JavaScript frameworks so why you use this, how to install it and how to start working with ember.js? I hope after reading this article you will somewhat understand ember." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://prabhdeveloperblog.com/post/emberjs/" />
+
+
+
+<meta property="article:published_time" content="2017-11-05T00:39:10-07:00"/>
+<meta property="article:modified_time" content="2017-11-05T00:39:10-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="EmberJs">
+<meta itemprop="description" content="Welcome to my new post which is about Ember.js. Are you getting started on ember.js? If yes then check out this post. In this post, I will explain what is ember.js, what are the features of ember.js, as there are so many JavaScript frameworks so why you use this, how to install it and how to start working with ember.js? I hope after reading this article you will somewhat understand ember.">
+
+
+<meta itemprop="dateModified" content="2017-11-05T00:39:10-07:00" />
+<meta itemprop="wordCount" content="1541">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="EmberJs"/>
+<meta name="twitter:description" content="Welcome to my new post which is about Ember.js. Are you getting started on ember.js? If yes then check out this post. In this post, I will explain what is ember.js, what are the features of ember.js, as there are so many JavaScript frameworks so why you use this, how to install it and how to start working with ember.js? I hope after reading this article you will somewhat understand ember."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('http://prabhdeveloperblog.com/images/ember.png');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://prabhdeveloperblog.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Developer Blog
+    </a>
+    <div class="flex-l items-center">
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+  <a href="https://twitter.com/GoHugoIO" class="link-transition twitter link dib z-999 pt3 pt0-l mr2" title="Twitter link">
+    <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+  </a>
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">EmberJs</h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <p class="f6 b helvetica tracked">
+        
+        POST
+      </p>
+      <h1 class="f1 athelas">
+        EmberJs
+      </h1>
+        
+        
+      <time class="f6 mv4 dib tracked" datetime="2017-11-05T00:39:10-07:00">
+        November 5, 2017
+      </time>
+      <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray">
+        
+
+<p>Welcome to my new post which is about Ember.js. Are you getting started on ember.js? If yes then check out this post. In this post, I will explain what is ember.js, what are the features of ember.js, as there are so many JavaScript frameworks so why you use this, how to install it and how to start working with ember.js? I hope after reading this article you will somewhat understand ember.js.</p>
+
+<h2 id="introducing-ember-js-1">Introducing Ember.js<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup></h2>
+
+<p>Ember.js is an open source, free JavaScript client-side framework which designed to help you in developing web applications which are rich and complex in user interactions. It allows building client-side JavaScript applications by providing developers many features that are very important for managing complexity in these applications and as an integrated development toolkit. So, it provides a complete solution for web applications which contains data management and an application flow.</p>
+
+<p>Ember.js uses the Model-View-Controller (MVC) architecture pattern. In this framework, the route is used as a model, handlebar template as view and controller manipulate the data in the model.</p>
+
+<p>It allows developers to create scalable single-page web -applications. But it is also used for creating desktop and mobile applications (For Example Apple Music desktop application is an example of ember desktop applications). There are some popular websites that use Ember such as Discourse, Groupon, LinkedIn, vine, CodeSchool etc.</p>
+
+<p>Ember.js was developed by Yehuda Katz and released in December 2011. The final version 2.10.0 of the Ember.js was released on November 28, 2016. It was first named as SproutCore MVC framework.</p>
+
+<p>The major concept that team used in the creation of the Ember was the belief that web has the ability to bookmark and share URLs is what makes it so unique. The team felt that most of other JavaScript frameworks take the concept of URLs as a second thought such as they use the concept of a router as an optional add-on. They want to create a framework that is somewhat similar to the concept of desktop MVC framework instead of using the server-side MVC framework. That is why, they created a framework Ember.js that is a combination of the productivity of a native UI framework and share URLs. They designed the Ember.js with some following key ideas<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup>:</p>
+
+<p><strong>Focus on ambitious web applications</strong></p>
+
+<p>Ember was designed to solve the problem of the client-side applications. This JavaScript framework first provides the solution to V in MVC(Model-View-Controller) and then try to grow further from there.</p>
+
+<p><strong>More productive out of the box</strong></p>
+
+<p>Ember.js is like a box with a set of tools. These tools work together to give you a complete development kit. The motive of these tools is to allow developers to work more efficiently.</p>
+
+<p><strong>Stability without stagnation</strong></p>
+
+<p>This concept ensures that backend compatibility is important and can be maintained while using the framework.</p>
+
+<p><strong>Future web standards foresight</strong></p>
+
+<p>Many of the standards of the JavaScript and the web has been supported by ember earlier than other frameworks such as web components, ES6 syntax etc. Ember also follows the principles of Convention over Configuration (CoC), and Don&rsquo;t Repeat Yourself (DRY).</p>
+
+<h2 id="features-of-ember-js-3-4">Features of Ember.js<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup><sup class="footnote-ref" id="fnref:4"><a rel="footnote" href="#fn:4">4</a></sup></h2>
+
+<p>Following are some features of ember.js:</p>
+
+<ul>
+<li><p>Routes are the main features of ember and the central part of any ember application. These routes are used to manage the URLs of applications.</p></li>
+
+<li><p>Ember provides an Ember Inspector Tool to debug your ember applications. It is a browser extension that allows you to inspect ember applications live.</p></li>
+
+<li><p>Ember uses handlebars syntax to write your application’s templates which allows you to write less code and automatically update the model when the content of application get changed.</p></li>
+
+<li><p>Ember also provides you a development toolkit Ember CLI to create, develop and build ember applications.</p></li>
+
+<li><p>Ember Data Layer provides an efficient way to communicate with external APIs and also manage the application state.</p></li>
+
+<li><p>Ember.js use HTML and CSS as the main development model and allows to create reusable and maintainable JavaScript applications.</p></li>
+</ul>
+
+<h2 id="installing-ember-js-5">Installing Ember.js<sup class="footnote-ref" id="fnref:5"><a rel="footnote" href="#fn:5">5</a></sup></h2>
+
+<p>Getting started with ember is quite easy, you just need to install ember command line interface. Ember CLI is used to create and manage ember applications through the command line. Ember CLI provides:</p>
+
+<ul>
+<li><p>Different kinds of application asset management such as concatenation, minification, and versioning.</p></li>
+
+<li><p>Generators to produce components, routes etc.</p></li>
+
+<li><p>A typical project layout which makes easy to approach existing ember applications.</p></li>
+
+<li><p>Supports ES2015/ES6 and modules of JavaSript.
+Dependencies
+You need to have following dependencies to install ember in your system:</p></li>
+
+<li><p>Git: Git is open source system to control the versions of files. Ember uses git for managing its dependencies. For more information on git visit the official website of <a href="https://git-scm.com/">git</a>. If you do not have git installed on your system, you can install from these links for <a href="http://git-scm.com/download/linux">Linux</a>, for <a href="https://git-scm.com/download/mac">Mac</a> and for <a href="https://git-scm.com/download/win">Windows</a>.</p></li>
+
+<li><p>Node.js and NPM: Node.js is an open source, which is used for developing server-side and networking JavaScript applications. NPM is used to manage dependencies. Ember needs the latest version of it. If you do not have node.js installed visit these links <a href="https://nodejs.org/en/download/">Mac</a>, <a href="https://nodejs.org/en/download/package-manager/">Linux</a> or <a href="https://nodejs.org/en/download/">Windows</a>. NPM is packaged with Node.js.</p></li>
+
+<li><p>Other Dependencies: For managing the components such as HTML, CSS, JavaScript, image files etc. you need Bower. You can install it using NPM. Other optional dependencies are Watchman and PhantomJS. Watchman is used to managing files and directories and do some actions when they change. PhantomJS is used to run the browser-based unit test.
+Now as you have all required dependencies installed on your system, you can install ember with npm by running this command given below:</p></li>
+</ul>
+
+<pre><code>npm install -g ember-cli
+</code></pre>
+
+<p>Or you can run the following command to install specific version:</p>
+
+<pre><code>npm install -g ember-cli@2.16
+</code></pre>
+
+<p>To verify that you successfully installed ember, run (for windows):</p>
+
+<pre><code>Ember -version
+</code></pre>
+
+<p>If the result of this command is version number than ember is installed on your system and you are ready to create applications with Ember.</p>
+
+<h2 id="core-concepts-of-ember-js-6">Core Concepts of Ember.js<sup class="footnote-ref" id="fnref:6"><a rel="footnote" href="#fn:6">6</a></sup></h2>
+
+<p>Before you start developing ember applications you need to know about some basic concepts of Ember.js which are given below.
+<img src="/images/emberjs-core-concepts.jpg" alt="ember core concepts" />
+<p align="center" style="font-size:15px;">Source: <a href="https://www.tutorialspoint.com/emberjs/images/emberjs-core-concepts.jpg">https://www.tutorialspoint.com/emberjs/images/emberjs-core-concepts.jpg</a></p></p>
+
+<ul>
+<li><h4 id="router-and-route-handlers">Router and Route Handlers</h4>
+
+<p>Whenever URL is changed router maps the URL to route handlers. Imagine user load the app by entering the URL in the address bar and change the URL by editing the URL in the address bar or by clicking a button in the app or any other way. The first thing that happens is that ember router maps the changed URL to route handler. Which further renders a template and loads a model for a template. If the user has no required permissions to access the specific part of the app router will redirect the user to the new route.</p></li>
+
+<li><h4 id="templates">Templates</h4>
+
+<p>The user interface is what known as templates in ember. These templates build the front-end application, which is similar to HTML and uses the syntax of Handlebars. It also allows to use and update regular expressions.</p></li>
+
+<li><h4 id="model">Model</h4>
+
+<p>In ember applications, we use model is used to store persistent state. These models manipulate the data and templates to be displayed in HTML. Ember manipulates the data stored in the database by extending the functionality of the Ember Data.</p></li>
+
+<li><h4 id="components">Components</h4>
+
+<p>As we know that templates control how the user interface looks like and components control how the user interface behaves. There are two parts included in components:</p>
+
+<ul>
+<li><p>A template file which is written in Handlebars,</p></li>
+
+<li><p>A source file which is written in JavaScript that defines the behavior of UI.</p></li>
+</ul></li>
+</ul>
+
+<p>It allows the creation of reusable controls.</p>
+
+<h2 id="creating-and-running-application-7">Creating and Running Application<sup class="footnote-ref" id="fnref:7"><a rel="footnote" href="#fn:7">7</a></sup></h2>
+
+<p>Now as you know the basic concepts of ember and how to install ember in your system. Let’s start creating simple and easy ember application. First, create a folder (for example first-ember-app) where you want to store your application. Then navigate to that folder on the command line using cd command:</p>
+
+<pre><code>$ cd ~/first-ember-app 
+</code></pre>
+
+<p>Now create a new application by running the following command:</p>
+
+<pre><code>$ ember new first-app 
+</code></pre>
+
+<p>Now as you created an ember application, to run this application you need to navigate to this project’s directory as follows:</p>
+
+<pre><code>$ cd first-app
+</code></pre>
+
+<p>Now run,</p>
+
+<pre><code>$ ember server 
+</code></pre>
+
+<p>Your application is running now. Open the browser and go to <a href="http://localhost:4200/">http://localhost:4200/</a>. It will show the ember welcome page which means your application is running now.
+<img src="/images/result.png" alt="ember result" />
+You can edit this application. For this open app/templates/application.hbs and make changes for example:</p>
+
+<pre><code>&lt;h1&gt;Welcome from my side!!&lt;/h1&gt; 
+{{oulet}}
+</code></pre>
+
+<p>As you can see ember automatically update the changes when you change this file and show updated page.</p>
+
+<p><strong>Define a route:</strong> Let’s create an application that just displays the grocery list. For this we need to create a route, so run in your project directory:</p>
+
+<pre><code>$ ember generate route grocery
+</code></pre>
+
+<p>Do the following changes to app/templates/grocery.hbs</p>
+
+<pre><code>&lt;h2&gt;Grocery Items&lt;/h2&gt;
+</code></pre>
+
+<p>You also need to define a model in app/routes/grocery.js file</p>
+
+<pre><code>import Route from '@ember/routing/route';
+export default Route.extend({
+model(){
+return['Milk', 'Apple', 'Breads'];
+}
+});
+</code></pre>
+
+<p>Now tell the ember how to render that model in HTML. Add following into grocery.hbs file:</p>
+
+<pre><code>&lt;h2&gt;Grocery Items&lt;/h2&gt;
+&lt;ul&gt;
+{{#each model as |grocrey|}}
+&lt;li&gt;{{grocrey}}&lt;/li&gt;
+{{/each}}
+&lt;/ul&gt;
+{{outlet}}
+</code></pre>
+
+<p>Now visit the <a href="http://localhost:4200/grocery">http://localhost:4200/grocery</a> to see changes.
+I hope you enjoy reading this blog and somewhat understand about ember. If you want to learn more about please see official <a href="https://guides.emberjs.com/v2.16.0/">guide</a> of ember.</p>
+
+<p><strong>Thank You!!</strong></p>
+
+<p align="center" style="font-size:15px;">Source for featured image: https://cms-assets.tutsplus.com/legacy-courses/CRS-43.png</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="https://guides.emberjs.com/v2.16.0/">https://guides.emberjs.com/v2.16.0/</a>
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2"><a href="https://en.wikipedia.org/wiki/Ember.js#Philosophy_and_design">https://en.wikipedia.org/wiki/Ember.js#Philosophy_and_design</a>
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3"><a href="https://guides.emberjs.com/v2.16.0/">https://guides.emberjs.com/v2.16.0/</a>
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+<li id="fn:4"><a href="https://www.tutorialspoint.com/emberjs/emberjs_overview.htm">https://www.tutorialspoint.com/emberjs/emberjs_overview.htm</a>
+ <a class="footnote-return" href="#fnref:4"><sup>[return]</sup></a></li>
+<li id="fn:5"><a href="https://guides.emberjs.com/v2.16.0/getting-started/">https://guides.emberjs.com/v2.16.0/getting-started/</a>
+ <a class="footnote-return" href="#fnref:5"><sup>[return]</sup></a></li>
+<li id="fn:6"><a href="https://www.infragistics.com/community/blogs/brent_schooley/archive/2013/11/07/ember-js-basics-what-is-ember.aspx">https://www.infragistics.com/community/blogs/brent_schooley/archive/2013/11/07/ember-js-basics-what-is-ember.aspx</a>
+ <a class="footnote-return" href="#fnref:6"><sup>[return]</sup></a></li>
+<li id="fn:7"><a href="https://www.tutorialspoint.com/emberjs/emberjs_creating_running_application.htm">https://www.tutorialspoint.com/emberjs/emberjs_creating_running_application.htm</a>
+ <a class="footnote-return" href="#fnref:7"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+      </section>
+      
+
+
+    </article>
+    <div class="ph3 mt2 mt6-ns">
+      
+
+
+
+
+
+
+
+  <div class="bg-light-gray pa3">
+    <ul>
+      <li class="list b mb3">
+        3 More Posts
+      </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/post/socketio/" class="link ph2 pv2 db black">
+            Socket.IO
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/post/emberjs/" class="link ph2 pv2 db black o-50">
+            EmberJs
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/post/amazons3/" class="link ph2 pv2 db black">
+            Understanding Amazon S3
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/post/chapter-1/" class="link ph2 pv2 db black">
+            Function Composition in JavaScript with Pipe
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+    </div>
+  </div>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://prabhdeveloperblog.com/" >
+    &copy; 2017 Developer Blog
+  </a>
+  
+
+
+
+  <a href="https://twitter.com/GoHugoIO" class="link-transition twitter link dib z-999 pt3 pt0-l mr2" title="Twitter link">
+    <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+  </a>
+
+
+
+
+
+
+  </div>
+</footer>
+
+    <script src="http://prabhdeveloperblog.com/dist/app.bundle.js" async></script>
+
+  </body>
+</html>
