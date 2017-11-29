@@ -6,10 +6,20 @@
     <description>Recent content on Developer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Nov 2017 00:39:10 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 22 Nov 2017 00:39:10 -0700</lastBuildDate>
     
 	<atom:link href="http://prabhdeveloperblog.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Socket.IO</title>
+      <link>http://prabhdeveloperblog.com/post/socketio/</link>
+      <pubDate>Wed, 22 Nov 2017 00:39:10 -0700</pubDate>
+      
+      <guid>http://prabhdeveloperblog.com/post/socketio/</guid>
+      <description>Welcome to my new post in which I am going to explain about Socket.IO JavaScript library for real-time web applications. In this article, I will introduce you to the basic concepts of Socket.IO. I hope you will enjoy reading this article and understand basics of this topic.
+Introduction to Socket.IO1,2 Node.js is not the solution to every problem, however, using the Socket.IO library we can easily make it work with Websockets for real-time applications.</description>
+    </item>
     
     <item>
       <title>EmberJs</title>
